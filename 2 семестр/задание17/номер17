@@ -1,0 +1,20 @@
+import java.util.Deque;
+import java.util.LinkedList;
+import java.util.*;
+public class Main {
+    public static void main(String[] args){
+        boolean larvesta;
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Введите строку");
+        String input = scanner.nextLine();
+        larvesta = correctness(input);
+        System.out.println(larvesta);
+
+    }
+    public static boolean correctness(String str){
+        while (str.contains("()")) {
+            str = str.replaceAll("\\(\\)", "");
+        }
+        return (str.length() == 0);
+    }
+}
