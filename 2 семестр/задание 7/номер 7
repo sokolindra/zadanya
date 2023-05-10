@@ -1,0 +1,20 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        System.out.println("Введите число");
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int sqrt = (int) Math.sqrt(n);
+        int diff1 = n - sqrt * sqrt;
+        int diff2 = (sqrt + 1) * (sqrt + 1) - n;
+        int result;
+        if (diff1 < diff2) {
+            result = sqrt * sqrt;
+            System.out.println(result + " это квадрат " + sqrt);
+        } else {
+            result = (sqrt + 1) * (sqrt + 1);
+            System.out.println("ближе всего число " + result + ", это квадрат " + (sqrt + 1));
+        }
+    }
+}
