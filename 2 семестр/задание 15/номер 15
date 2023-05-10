@@ -1,0 +1,13 @@
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Введите строку: ");
+        String input = scanner.nextLine();
+        String[] words = input.split(" ");
+        Set<String> uniqueWords = new HashSet<>(Arrays.asList(words));
+        String result = String.join(" ", uniqueWords);
+        System.out.println("Результат: " + result);
+    }
+}
