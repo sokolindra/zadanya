@@ -1,0 +1,32 @@
+import java.io.*;
+
+public class Main {
+    public static void main(String[] args) {
+        int m = 6;
+        int n = 6;
+        int[][] arr = new int[m][n];
+
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++) {
+                if (i == 0 || j == 0 || i == m-1 || j == n-1) {
+                    arr[i][j] = 1;
+                } else {
+                    arr[i][j] = arr[i-1][j-1] + 1;
+                }
+            }
+        }
+
+        try {
+            PrintWriter writer = new PrintWriter("result.txt", "UTF-8");
+            for (int i = 0; i < m; i++) {
+                for (int j = 0; j < n; j++) {
+                    writer.print(arr[i][j] + " ");
+                }
+                writer.println();
+            }
+            writer.close();
+        } catch (IOException e) {
+            System.out.println("Error: " + e.getMessage());
+        }
+    }
+}
