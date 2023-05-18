@@ -1,0 +1,30 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Введите строку: ");
+        String str = scanner.nextLine();
+        System.out.print("Введите сдвиг: ");
+        int shift = scanner.nextInt();
+        System.out.print("Выберите шифр (1 -шифрование, -1 -дешифрование): ");
+        int direction = scanner.nextInt();
+        System.out.println(caesarCipher(str, shift, direction));
+    }
+
+    public static String caesarCipher(String s, int shift, int direction) {
+        StringBuilder result = new StringBuilder();
+        for (int i = 0; i < s.length(); i++) {
+            char c = s.charAt(i);
+            if (Character.isLetter(c)) {
+                if (Character.isUpperCase(c)) {
+                    c = (char) (((c - 'A') + (shift * direction) + 26) % 26 + 'A');
+                } else {
+                    c = (char) (((c - 'a') + (shift * direction) + 26) % 26 + 'a');
+                }
+            }
+            result.append(c);
+        }
+        return result.toString();
+    }
+}
