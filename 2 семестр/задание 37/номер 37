@@ -1,0 +1,28 @@
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Введите количество игроков:");
+        int n = scanner.nextInt();
+        System.out.println("Введите номер игрока, с которого начинается игра:");
+        int start = scanner.nextInt();
+        List<Integer> players = new ArrayList<>();
+        for (int i = 1; i <= n; i++) {
+            players.add(i);
+        }
+        List<Integer> result = new ArrayList<>();
+        int count = start - 1;
+        while (players.size() > 1) {
+            count += 2;
+            count %= players.size();
+            result.add(players.remove(count));
+            count--;
+        }
+        result.add(players.get(0));
+        System.out.println("Результат:");
+        System.out.println(result);
+    }
+}
